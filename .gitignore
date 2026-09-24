@@ -1,0 +1,22 @@
+# OS junk
+.DS_Store
+Thumbs.db
+
+# VS Code local settings
+.vscode/
+
+# Python junk if scripts eventually end up in here
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Secrets / credentials
+.env
+*.key
+*.pem
+
+# Temporary files
+*.tmp
+*.swp
+*~

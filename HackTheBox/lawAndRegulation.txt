@@ -1,0 +1,53 @@
+===================================================================================================================
+USA
+===================================================================================================================
+----------------------------------------
+Computer Fraud and Abuse Act (CFAA)
+----------------------------------------
+    Federal law criminalizing computer access without authorization
+    Indescript, not specific, and very controversial.
+        As such, familiarization is vital
+----------------------------------------
+Digital Millunnium Copyright Act
+----------------------------------------
+    Provisions prohibiting circumventing tech measures protecting copyrighted works
+    Includes clauses excepting valid ethical OffSec research activities
+        Because of this, it's another important read
+----------------------------------------
+Electronic Communications Privacy Act
+----------------------------------------
+    Regulates incterception of E-Communications
+    Consent laws regarding recording of electronic communications (disclosure when recording phone calls)
+    Prohibits E-Comms in a court of law
+    Rules governing what ISPs are allowed to do with their customer's ecomms
+----------------------------------------
+HIPAA
+----------------------------------------
+    You know this - PHI and PII
+----------------------------------------
+COPPA - Children's Online Privacy Protection Act
+----------------------------------------
+    Regulates collection of PI from children under 13
+    OffSec researchers must take special steps to ensure that they're not collecting, using, or disclosing PI
+        of a child under 13.
+
+==================================================================================================================
+EUROPE
+==================================================================================================================
+----------------------------------------
+GDPR
+----------------------------------------
+    Regulates handling of personal data and strengthens individual rights over personal data
+----------------------------------------
+NISD - Network and InfoSys Directive
+----------------------------------------
+    Requires operators of essential services and digital service providers to take specific security measures and report incidents
+----------------------------------------
+Cybercrime Convention of the Counsil of EUROPE
+----------------------------------------
+    International treay on crimes committed via internet
+    framework for cooperation between investigative and prosecuting companies
+----------------------------------------
+E-Privacy Directive 2002/58/EC
+----------------------------------------
+Regulates processing of personal data in ecomm sector
