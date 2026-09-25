@@ -1,0 +1,43 @@
+===============================================================================================================================
+Converting between Binary and Hexademical:
+    Going from 0x -> 0b:
+        Since Hex uses 4 bits to represent a character, switch the character representations with their binary counterparts:
+            0x451 ... 
+                4 = 0x0100, 5 = 0x0101, 1 = 0x0001
+            Then combine them ...
+                0b010001010001
+    Going from 0b -> 0x
+        The reverse ...
+            0b0100 - 0101 - 0001
+            4 - 5 - 1
+            0x451
+
+==============================================================================================================================
+A powers-less way of converting from decimal to binary
+    Build a binary by checking parity with division
+    Builds from right to left
+    if decimal value is even, next bit is a 0
+    if decimal value is odd, next bit is a 1
+
+EXAMPLE:
+    CONVERT 422
+    422 is even, so d(0) is 0 = 0
+    422 / 2 is 211, which is odd, so d(1) is 1 = 10
+    211 / 2 is 105, which is odd, so d(2) is 1 = 110
+    105 / 2 is 52, which is even, so d(3) is 0 = 0110
+    52 / 2 is 26, which is even, so d(4) is 0 = 00110
+    26 / 2 is 13, which is odd, so d(5) is 1 = 100110
+    13 / 2 is 6, which is even, so d(6) is 0 = 0100110
+    6 / 2 is 3, which is odd, so d(7) is 1 = 10100110
+    3 / 2 is 1, which is odd, so d(8) is 1 = 110100110
+    1 / 2 is 0, so any digit above will be 0, so the algorithm terminates
+
+SO:
+    0d422 = 0b110100110
+
+=============================================================================================================================
+SIGNED numbers (Can be negative), UNSIGNED must be 0 or positive (no preceding sign '-')
+    Signed number encodings distinguis between positive and negative by the first bit
+        1 = negative, 0 = non-negative
+        This bit is known as a high-order bit
+    
