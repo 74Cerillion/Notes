@@ -20,3 +20,18 @@ Information Security:
 
 ===========================================================================================================
 Connecting Using a VPN
+    Two main types of VPNs: client-based and SSL.
+        SSL uses the web browser as the VPN client
+    Wy do we need a VPN?
+        Obscures our browsing traffic and disguises our public IP address
+        Some VPN service providers lie and log traffic.
+            As such, never assume that the VPN is guaranteeing anonymity or privacy
+CONNECTING TO HTB:
+    VPN required
+    Use VM
+    disallow password authentication is SSH is enabled on the VM/Computer
+    Do not put any sensitive or PII on the attack VM
+    Use this command:
+        sudo openvpn user.ovpn
+
+==========================================================================================================
