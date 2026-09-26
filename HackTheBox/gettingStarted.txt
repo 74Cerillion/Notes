@@ -1,0 +1,22 @@
+===========================================================================================================
+Information Security:
+    In a nutshell, the practice of protecting data from unauthorized access, changes, unlawful use,
+        disruption, etc. 
+    CIA Triad
+    The Risk Management Process:
+        Step 1. Identify the risks the business is exposed to
+        Step 2. Analyze the risk. Determine their impact and probability. Map them to organizational
+                policies, procedures, and processes
+        Step 3. Evaluate the Risk. Rank and prioritize risks, make decisions on what to do about the risk:
+                i.e. accept, avoid(change route), control(mitigate), or transfer(insure)
+        Step 4. Dealing with Risk. Eliminate or contain risk as best as possible.
+        Step 5. Monitor Risk. Constantly monitor for situational changes that could change the impact score
+
+===========================================================================================================
+* It's important that each new pentest be performed from a fresh VM
+    - This helps avoid exposing security-relevant details from another client env in our reports
+    - helps avoid retaining sensitive information from clients
+**Because of this, we must have the ability to stand up a new machine quickly (IaC?)
+
+===========================================================================================================
+Connecting Using a VPN
