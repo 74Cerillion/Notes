@@ -40,6 +40,7 @@ Basic Tools:
     to use SSH:
         use the compromised cleartext credential username @ target IP
             $ssh Bob@10.10.10.10
+    ----BANNER GRABBING----
     Netcat/ncat/nc: network utility for interacting with TCP/UDP ports
         Used to connect to shells
         Can connect to any listening port and interact with the service running on that port
@@ -49,4 +50,54 @@ Basic Tools:
             Using it identifies what service is running on a particular port.
         Can also transfer files between machines
     Tmux:
-        
+        Stands for Terminal Multiplexers
+            Expands standard Linux terminal's features (things like having multiple windows w/n one
+            one terminal and jumping between them)
+        Installs with:
+            $sudo apt install tmux -y
+        Once installed, enter with:
+            $tmux
+        CTRL + B is the prefix to enter a command to Tmux
+            (prefix) + C: opens a new window in tmux
+            (prefix) + [number of pane you wish to view]: switches between panes
+        SHIFT + % splits a window into vertical panes
+        SHIFT + " splits a window into horizontal panes
+    vim:
+        text editor that's powerful and fast with hotkeys for navigation like vscode
+        Some commands:
+            vim <filename>: Open a file in vim
+            i: enters insert mode where pressing keys now types
+            esc: gets us out of insert mode where pressing keys will now do hotkey-type things
+                x: cut character
+                dw: cut word
+                dd: cut full line
+                yw: copy word
+                yy: copy full line
+                p: paste
+            :: enters command mode
+                :<#>: go to line number
+                :w: write the file, save
+                ;q: quit
+                :q!: quit without saving
+                :wq: Write and quit
+
+==========================================================================================================
+Service Scanning
+==========================================================================================================
+First thing's first--- Identify the operating system and any services that are running
+    We connect using the correct IP Address and Port Number and use a language that the service
+    understands to try to get the service to perform unintended actions for us on the target system
+
+Nmap:
+    Scans the port range to search for open/available ports
+    ---
+    $nmap <target IP>
+    ---
+    By default, nmap will only scan the most common 1000 TCP ports unless arguments are specified
+        -sC specifies nmap scripts should be Used
+            There are default scripts, but you can also supply your own for more advanced functionality
+            To specify your own script:
+                $nmap --script <script name> -p<port> <host>
+        -sV instructs nmap to perform version scan, fingerprinting services on target to Identify
+                    protocol, application name, and version
+        -p- tells nmap to scan comprehensive 65535 ports
