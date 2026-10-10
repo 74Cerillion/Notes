@@ -35,3 +35,18 @@ CONNECTING TO HTB:
         sudo openvpn user.ovpn
 
 ==========================================================================================================
+Basic Tools:
+    SSH - Port 22
+    to use SSH:
+        use the compromised cleartext credential username @ target IP
+            $ssh Bob@10.10.10.10
+    Netcat/ncat/nc: network utility for interacting with TCP/UDP ports
+        Used to connect to shells
+        Can connect to any listening port and interact with the service running on that port
+            $netcat 10.10.10.10 22
+                Connect to the server's SSH port
+        This technique is called Banner Grabbing
+            Using it identifies what service is running on a particular port.
+        Can also transfer files between machines
+    Tmux:
+        
