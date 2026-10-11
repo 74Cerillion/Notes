@@ -101,3 +101,16 @@ Nmap:
         -sV instructs nmap to perform version scan, fingerprinting services on target to Identify
                     protocol, application name, and version
         -p- tells nmap to scan comprehensive 65535 ports
+
+==========================================================================================================
+Web Enumeration
+==========================================================================================================
+Web servers and applications provide a massive attack surface
+    as such, web enumerationis critical
+Once a web app is discovered, check to see if you can find any hidden files not intended for public access
+    tools like ffuf or GoBuster perform this directory enumeration
+    Sometimes, there will be hidden functionality that can be leveraged to access the web app or remote
+                    code execution
+GoBuster:
+    allows for DNS, vhost, and directory brute-forcing as well as enumeration of public S3 buckets
+    
