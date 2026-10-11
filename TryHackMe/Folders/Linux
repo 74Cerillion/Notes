@@ -1,0 +1,9 @@
+/ - root
+/etc - system and program files
+        ex. sudoers
+/var - data and services that applications
+    read/write to often
+        ex. log files
+/root - home directory for the root user
+/tmp - clears on restart, stores contents that
+    are temporary

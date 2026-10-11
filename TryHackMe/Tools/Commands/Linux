@@ -1,0 +1,16 @@
+find - search files by their name
+grep - search inside for text
+        grep "<text>" <file>
+& - Run the command but do not prevent further work before
+    it finished. Runs in background
+&& - Runs multiple commands sequentially
+        <command 1> && <command 2>
+> - Redirect output and send it to a file, overwriting the
+    file
+>> - Redirector does same thing but appends it to the bottom
+    of the file
+touch - creates a file
+mkdir - creates a directory
+cp - copy file/folder
+mv - move file/folder
+rm - remove file/folder
