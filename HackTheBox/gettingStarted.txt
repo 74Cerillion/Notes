@@ -113,4 +113,7 @@ Once a web app is discovered, check to see if you can find any hidden files not 
                     code execution
 GoBuster:
     allows for DNS, vhost, and directory brute-forcing as well as enumeration of public S3 buckets
-    
+Strung gobuster together with curl and a browser to find the robots.txt file
+    then inspected the page to reveal login credentials hardcoded as a comment in the HTML Body
+    Used the HTML body to log into the admin page listed in the robots.txt file
+    Flag was inside of the admin page after login
