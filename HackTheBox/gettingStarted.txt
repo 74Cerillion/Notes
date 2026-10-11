@@ -117,3 +117,10 @@ Strung gobuster together with curl and a browser to find the robots.txt file
     then inspected the page to reveal login credentials hardcoded as a comment in the HTML Body
     Used the HTML body to log into the admin page listed in the robots.txt file
     Flag was inside of the admin page after login
+
+==========================================================================
+Public Exploits
+==========================================================================
+searchsploit is great for finding known vulnerabilities in services
+    sudo apt install exploitdb -y
+    searchsploit openssh 7.2

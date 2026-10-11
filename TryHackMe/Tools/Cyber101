@@ -1,0 +1,11 @@
+Shodan:
+    search engine for the IoT.
+    Continuously scans internet, searching for networking equipment
+        IDC, traffic cameras, and anything else with a public IP
+        to see what's running and where.
+VirusTotal:
+    Collates results from over 70 antivirus engines and scanners
+    Give it a file, URL, domain, or hash
+        It will tell you if anybody has flagged it as malicious
+CVE:
+    Common Vulnerabilities and Scoring System - YK This
