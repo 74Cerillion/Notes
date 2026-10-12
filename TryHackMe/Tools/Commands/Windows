@@ -1,0 +1,28 @@
+set - shows the system path to your command line
+ver - shows OS version you're on
+systeminfo - show's more indepth info about the system
+    pipe through more to show page by page
+help provides more info for the specified command
+cls clears the command prompt screen
+
+ping
+ipconfig and ipconfig /all
+tracert
+netstat - displays current network connections
+    and listening ports
+        -a displays all established connections
+        -b shows associated program
+        -o reveals PID associated with each connection
+        -n numerical form for addresses and port #s
+
+cd and dir
+dir /a - displays hidden and system files as well
+dir /s displays files in current tree recursively
+
+tree visually represents the tree
+
+type - view text files
+    useful to pipe through more for longer files
+
+tasklist - task manager equivalent for cmd line
+    taskkill /PID <PID#>
