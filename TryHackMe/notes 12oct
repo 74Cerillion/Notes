@@ -1,0 +1,21 @@
+OS uses namespaces to divide resources amongst processes
+    good for process isolation from a security perspective
+
+systemd is a process on the linux machine that controls
+    other processes. It divides the kernal from the user
+    it's one of the first processes to start upon boot
+
+CRON process:
+
+crontabs is a process started during boot
+crontabs require 6 specific values:
+    MIN -what minutes to execute at
+    HOUR -what hour to execute at
+    DOM -what day of the month to execute at
+    MON -what month of the year to execute at
+    DOW -what day of the week to execute at
+    CMD -The actual command that will be executed
+Use the * wildcard to intentionally omit a value
+crontab generator and cron guru are sites that will
+    generate your syntax for you if needed
+use crontab -e to edit the user's crontab file

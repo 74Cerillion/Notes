@@ -14,3 +14,48 @@ mkdir - creates a directory
 cp - copy file/folder
 mv - move file/folder
 rm - remove file/folder
+wget - allows you to download files from the web onto the
+    local machine
+    EX:
+    wget https://assets.tryhackme.com/additional/myfile.txt
+    This downloads a file called myfile.txt to the local
+    machine from the assets.tryhackme.com website
+SCP - copy files between systems using SSH for encryption
+    and authentication
+    EX:
+    Remote IP - 192.168.1.30
+    remote name - ubuntu
+    name of file on remote system - documents
+    name we wish to store it as on our system - notes.txt
+    command:
+     scp ubuntu@192.168.1.30:/home/ubuntu/documents.txt notes.txt
+    
+    now flip it - storing a file from our system on a remote
+     scp notes.txt ubuntu@192.168.1.30:/home/ubuntu/documents.txt
+
+python3 offers http.server automatically
+    python3 -m http.server
+        will automatically start the server on port 8000
+you can then use wget to retrieve files being served by python
+    *Note you'll need to specify port 8000 along with the
+     serving IP addr
+ps - displays running processes
+    to see processes run by other users and those run not from
+     a session, we need to use the aux flag: ps aux
+top - pretty much the same as ps but gives running and updating
+    analysis rather than a static, point-in-time snapshot
+kill - kills the process associated with the specified PID
+SIGTERM - Kill the process but let it cleanup first
+SIGKILL - kill the process, don't let it clean up
+SIGSTOP - Stop/Suspend a process
+
+systemctl - allows us to interact with systemd to mess with 
+    daemons
+    provides 5 options:
+    start, stop, enable, disable, status
+    systemctl <option> <service/daemon>
+
+pressing CTRL+Z is a way of 'backgrounding' an operation
+    think of it like the '&' operator but in the moment
+use 'fg' to bring it back to the foreground to see it
+    running
