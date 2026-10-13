@@ -59,3 +59,15 @@ pressing CTRL+Z is a way of 'backgrounding' an operation
     think of it like the '&' operator but in the moment
 use 'fg' to bring it back to the foreground to see it
     running
+
+use echo $SHELL to see which shell you're on
+
+SCRIPTING WITH BASH::::
+must create inside a text file
+name the text file with the .sh extension
+Every script must start with the shebang:
+    #!/bin/bash (#! followed by the name of the interpreter)
+write the script
+give the script execution permissions with:
+    chmod +x <scriptname>
+    call the script with ./ before it
