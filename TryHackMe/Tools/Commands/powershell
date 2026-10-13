@@ -1,0 +1,29 @@
+cmdlets follow a Verb-Noun naming convention
+    (YES FINALLY A NAMING CONVENTION)
+Get-<thing> - Retrieves something
+    Get-Content - Retrieves content of a file
+                and displays it to the console
+Set-<Thing> - Changes something
+    Set-Location - Changes CWD
+use Get-Command to see a list of all available    cmdlets
+alongside that, you can use -CommandType "<str>"
+    to specify a specific type
+Get-Help is similar to man pages
+
+Aliases allow certain cmdlets to utilize their 
+    cmd/bash counterpart
+    ex:
+    Set-Location can be called with cd
+    Get-ChildItem can be called with dir or ls
+    Get-Content can be called with type or cat
+
+Get-process - eq to ps
+Get-Service - same as tasklist or ps/top
+Get-NetTCPConnection - Netstat
+Get-FileHash - useful for integrity verification
+
+Invoke-Command - enables efficient remote management
+    and automation of tasks across multiple services
+    Can be used to execute payloads or commands
+    on target systems during an engagement
+
