@@ -15,3 +15,37 @@ DNS Records -
     AAAA = IPv6
     CNAME = Domain Name mapped to Domain Name
     MX - Mail Exchange
+
+HTTP/HTTPS uses TCP to establish connections and request types to tell the server what to do with itself. GET retrieves a resource. POST uploads something to the server. PUT overwrites or places an object on the server. DELETE... is self explanatory. 
+This pairs nicely with TELNET, which if you recall, was activated like this:
+telnet <ip>
+and loaded a blank prompt where you start your commands. If you enter:
+GET / HTTP/1.1
+You will get back the main web page. Notice the use of GET. More to come on this later.
+To make this work, you'll need the following:
+telnet <ip> <port>
+GET(etc) /<file> HTTP/1.1
+Host: Anything
+
+FTP is useful for transferring files from the FTP server to your client device and vice versa. Use RETR to retrieve (download) a file and STOR to store (upload) a file to the server. To use this, call 'ftp' following by the target IP Address and provide the UN and PW. From there, you can use the target's commands, like ls or dir, and call an HTTP method to interact and actually do stuff.
+
+SMTP operates on sending mail, for sending and receiving. You can use telnet to send/receive an email. Honestly, this a pretty niche thing it seems and not really worth the brain power to memorize because it's cumbersome. If you ever need this, look it up.
+
+POP3 is used for receiving mail. So you send it up on SMTP and pull it down on POP3.  POP3 can also be used over telnet. I'll spare the details for the same reasons as above.
+
+IMAP also exists on 143 (PP3 is on 110 and SMTP is on 25). It does the same thing in much the same way. IMAP however is used for synchronization rather than sending/retrieving.
+
+PORTS++++++++++++
+\ telnet tcp 23
+\ DNS UDP and TCP 53
+\ HTTP TCP 80 or 8080
+\ HTTPS TCP 443 or 8443
+\ FTP TCP 21
+\ SMTP TCP 25
+\ POP3 TCP 110
+\ IMAP TCP 143
+\ SMTPS TCP 465 and 587
+\ POP3S TCP 995
+\ IMAPS TCP 993
+
+SFTP is a secure version of file transfer protocol that runs atop SSH. It also utilizes the same HTTP commands like get and put.

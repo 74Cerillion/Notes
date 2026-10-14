@@ -118,3 +118,10 @@ chmod, chown, chgrp
 5 rx
 6 rw
 7 rwx
+
+WHOIS - look up information about an online domain,
+	including the registrar
+
+ssh - run secure shell on the remote system
+	ssh <user>@<ip>
+	-X switch enables GUI if the remote system has one
