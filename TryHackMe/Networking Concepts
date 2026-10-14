@@ -10,3 +10,8 @@ Client broadcasts a DHCP discover message seekign local DHCP server ->
 
 ARP, or address resolution protocol, is used by nodes on the same LAN to determine eachother's MAC addresses for routing during a session. Node 1 wants to send traffic to Node2, so N1 will need to first determine what N2's MAC is. N1 will create a frame with her own MAC and send it to the broadcast MAC (ff:ff:ff:ff:ff:ff) along with the IP address of N2 whom she wants to speak to. Every device receives the broadcast. N2, recognizing it's MAC, will respond with her MAC address. From there, a handshake can occur and the session can begin.
 
+DNS Records -
+    A = IPv4
+    AAAA = IPv6
+    CNAME = Domain Name mapped to Domain Name
+    MX - Mail Exchange
