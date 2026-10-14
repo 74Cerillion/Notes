@@ -1,0 +1,11 @@
+Captures and allows the networker to inspect/read packets
+    Useful for network troubleshooting, security analysis, and learning and investigation
+
+There's a lot here, but first off, you can find the Capture File Properties in the bottom right on the little page icon. It's a bit less intimidating and shows you info about the file, including:
+    name, length, hash, time, capture, interfaces, comments, etc.
+
+Wireshark uses the OSI model for dissection, here's how:
+    Double click a packet to view its details in the details pane
+    when you do that, the corresponding he will highlight in the bytes pane
+    You can see the frame, ehernet protocol, TCP, HTTP, etc in the details pane
+
