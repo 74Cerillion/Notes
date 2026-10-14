@@ -1,0 +1,120 @@
+ls - shows contents of directory
+	-l - shows detailed listing
+	-a - shows hidden files
+	-R - recursively show subdirectories
+
+'cd -' - changes to previous directory
+
+echo - print a message to the console
+	-e - allow escape character inserts like \n
+	-E - don't allow the above
+
+cat - read files or combine files into one
+	cat <file1> <file2> > combined.txt
+	Reads 1 and 2 and combines them into combined
+cat <1> <2> > combined.txt | grep "shell"
+	adds a search for shell to the end, which is what it will 	display
+
+cp - copy files
+	-i - ask me before overwriting files
+	-r - copy all files recursively within the directory. 	Lets you transplant entire directories.
+
+mv - move files
+	-i - same as cp
+	-u - move only if the source is newer
+you can also rename files with mv like this:
+	mv oldname.txt newname.txt
+
+rm - delete files or directories
+	-r - delete a folder and everything inside of it
+	-f - forcefully delete without asking
+will ask by default unless -f is specified
+
+touch - update timestamps or create a file
+	-a - update only when the file was last read
+	-m - update only when the file was last changed
+	-t - set timestamp to a specific time
+	-c - do not create a new file if specified name doesn't 	exist
+
+mkdir - create a new directory/directories
+	-p - create parent/child directories as needed
+		mkdir -p top/bottom/etc.txt
+	-m - change file permissions upon creation
+		mkdir -m 755 -p parent/child/doc.txt
+
+TEXT PROCESSING:::::::::::::::
+
+grep - search for text patterns inside of a file/files
+	-i - case insensitive search
+	-r - recursively search through all subdirectories
+syntax:
+	grep [options] "<Pattern>" <file>
+
+sed - used to change data in text streams
+	take a file that says "Hello World"
+syntax:
+	sed "s/World/bash" <filename>
+This changes "Hello World" to "Hello bash"
+
+sort - sorts data in files
+	-r - sorts in reverse
+
+tail - view the end of a file, particularly useful for log files
+	-n [number] - specify the last number of lines to view
+
+head - same as tail with the same switches but it views the first 	lines of the file
+
+ps - show processes that are running on the machine
+	-e - show all processes (e for extra)
+	-f - show extra information on the processes
+
+top - Shows running tasks and their statuses and consumption in 	real time
+	PID = Process ID
+	User = Owning account
+	PR = priority of the process
+	NI = Nice value, affects scheduling priority
+	VIRT = Virtual Memory Size used by process
+	RES = Resident memory size
+	SHR = Shared memory size
+	S = Status: 'S' Sleeping 'R' Running
+	%CPU
+	%MEM
+	Time+ = Total CPU time the process has held
+	Command = command that started the process
+
+df - shows disk usage statistics
+	-h shows it in human readable format like KB or MB
+
+free - shows amount of free memory and the amount consumed
+
+uptime - show current system uptime
+
+curl - transfer data from or to a server
+	-O - save the file with the same name as remote file
+	-u - specify UN and PW for server authentication
+
+wget - download files from the web
+	-r recursively
+	-b background operation
+
+scp - secure copy files between hosts on a network
+	-r recursively
+	-P specify port to hit on the remote machine
+syntax:
+	scp <filename> <UN>@<domain>:<filepath>
+	scp file.txt user@gmail.com:/home/user/fy.txt
+
+zip - compress contents of a file
+	-r to compress directories recursively
+
+unzip - clearly, unzip zipped files
+
+chmod, chown, chgrp
+0- no permission
+1- execute permission
+2- write permission
+3- wx
+4- r
+5 rx
+6 rw
+7 rwx
