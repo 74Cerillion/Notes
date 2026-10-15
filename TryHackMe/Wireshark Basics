@@ -9,3 +9,6 @@ Wireshark uses the OSI model for dissection, here's how:
     when you do that, the corresponding he will highlight in the bytes pane
     You can see the frame, ehernet protocol, TCP, HTTP, etc in the details pane
 
+To search for specific packets you need to know the type of information in the packet. This includes four types of inputs: Display filter, Hex, String, and Regex. You must ensure you're searching in the correct pane, as a search that would be viable in details will return "nothing found" in the hex pane.
+
+Wireshark can intercept and discover files transferred through the wire for selected protocol streams: DICOM, HTTP, IMF, SMB, and TFTP.
