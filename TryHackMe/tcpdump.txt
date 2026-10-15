@@ -41,3 +41,10 @@ $tcpdump -i any -c5 -nn tcp src 192.168.122.98 and port 80
 Use -X or -A to display the content of the packet in Hex or ASCII, respectively
 
 use -w to write the contents to a file
+
+Advanced Filtering:
+See MAC addresses attached to requests with -e:
+sudo tcpdump -r <file> <proto> -e
+
+see size with greater switch:
+sudo tcpdump -r <file> 'greater <#>' -n
