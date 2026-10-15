@@ -1,0 +1,43 @@
+Command Line Tool that lets you capture and analyze network traffic going through your system
+
+requires root privileges. To see which NIC interfaces are available to capture through, run tcpdump with -d or --list-interfaces
+Use any to choose all active interfaces
+
+unless you use the -c (for count, i.e. the number of packets to capture), it will run until it receives SIGKILL (CTRL+C)
+
+tcpdump will automatically resolve names when available. disable this with -n for domain names and -nn for ports
+
+Reading Output
+<timestamp> <IP/IPv6> <Source + Port>
+<Dest + port>: Flags <S/F/P/R/.> seq <#:#>
+.............
+
+S = SYN
+F = FIN
+P = PUSH
+R = Reset
+. = ACK
+
+seq = its place in bytes in the data stream. So "seq 196:568" means this packet is carrying bytes 196-568 of the chunked data.
+
+To filter based on protocol- specify the protocol in the command:
+sudo tcpdump -i any -c5 icmp
+
+limit to a specific host with the host filter
+
+filter for port by using the port filter
+
+sudo tcpdump -i any -c5 -nn icmp host cloudflare.com port 53
+"Capture icmp packets on cloudflare dns port 53. Only capture 5"
+
+call 'src' to filter based on source IP
+likewise, 'dst' for destination IP
+
+Create complex expressions with the 'and' and 'or' logical operators
+$tcpdump -i any -c5 -nn tcp src 192.168.122.98 and port 80
+
+"Capture 5 tcp packets coming from any active interface from src <ip> and port 80"
+
+Use -X or -A to display the content of the packet in Hex or ASCII, respectively
+
+use -w to write the contents to a file

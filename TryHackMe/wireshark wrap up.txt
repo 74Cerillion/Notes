@@ -1,0 +1,19 @@
+Capture Filters filter through what packets wireshark will capture
+Display filters adjust the view of already captured packets
+
+If you want to view all packets native to only 1 conversation, you can colourize it. Do this by clicking view -> Colourize Conversation.. You can reset by going back the same way and clicking reset colourization.
+
+You can right click and apply a new feature s a column if there's a section in the detailed packets that you want as part of the generalized write-up in the basic information pane.
+
+Follow specific data streams by right clicking -> analyze -> TCP/UDP/HTTP Stream
+
+use the X Button located in the right upper side of the display filter to remove the filters applied
+
+To filter for a specific port number, use this:
+	<protocol>.port==<number>
+	tcp.port==80
+	udp.port==53
+
+Same for ip Addresses
+	ip.addr==<ip>
+
