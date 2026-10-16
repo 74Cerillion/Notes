@@ -41,3 +41,21 @@ Now if you want more information about your hosts, use the -O option. It's not c
 
 -Pn tells nmap to scan the ports even on hosts that were marked as offline during discovery
 
+To get more verbose with timing and timeouts:
+--min-rate
+--max-rate
+--host-timeout
+
+Controlling Output:
+-V is obviously for verbosity
+  This flag is useful when you want to monitor real-time progress as nmap is operating, like if you run a T0 and want to ensure that it's still running properly the next day.
+-d is for debugging output. You can specify up to 4 'v's or 9 'd's. When looking at debugging level output, it's useful to note that you'll get thousands of lines of extremely low level output. Useful for RE and complicated exploits, or network engineers troubleshooting in depth.
+
+To store output in a file:
+-oN = Normal output
+-oX = XML file output
+-oG = grepable output
+-oA = all of the above major formats
+syntax:
+    -o<> <filename>
+    nmap -sS -t2 -oG <filename> <IP>
