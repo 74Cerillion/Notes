@@ -1,0 +1,87 @@
+Cryptography helps with the Confidentiality and Integrity aspects of the CIA triad. It is defined as the practice and study of techniques for secure communication and data protection where we expect the presence of adversaries
+
+The main variables for RSA = 
+p and q = large prime numbers
+n = product of p and q
+Public Key is n and e
+private key is n and d
+m is used to represent plaintext
+c represents ciphertext
+Theta(n) = n - p - q + 1
+
+In the Cryptography Basics room, we explained the modulo operation and said it plays a significant role in cryptography. In the following simplified numerical example, we see the RSA algorithm in action:
+
+    Bob chooses two prime numbers: p = 157 and q = 199. He calculates n = p × q = 31243.
+    With ϕ(n) = n − p − q + 1 = 31243 − 157 − 199 + 1 = 30888, Bob selects e = 163 such that e is relatively prime to ϕ(n); moreover, he selects d = 379, where e × d = 1 mod ϕ(n), i.e., e × d = 163 × 379 = 61777 and 61777 mod 30888 = 1. The public key is (n,e), i.e., (31243,163) and the private key is $(n,d), i.e., (31243,379).
+    Let’s say that the value they want to encrypt is x = 13, then Alice would calculate and send y = xe mod n = 13163 mod 31243 = 16341.
+    Bob will decrypt the received value by calculating x = yd mod n = 16341379 mod 31243 = 13. This way, Bob recovers the value that Alice sent.
+
+The proof that the above algorithm works can be found in modular arithmetic and is beyond the scope of this module. It is worth repeating that in this example, we picked a three-digit prime number, while in an actual application, p and q would be at least a 300-digit prime number each.
+
+Diffie Helman key exchange-
+Alice and Bob agree on the public variables: a large prime number p and a generator g, where 0 < g < p. These values will be disclosed publicly over the communication channel. Although insecurely small, we will choose p = 29 and g = 3 to simplify our calculations.
+Each party chooses a private integer. As a numerical example, Alice chooses a = 13, and Bob chooses b = 15. Each of these values represents a private key and must not be disclosed.
+It is time for each party to calculate their public key using their private key from step 2 and the agreed-upon public variables from step 1. Alice calculates A = ga mod p = 313 mod 29 = 19 and Bob calculates B = gb mod p = 315 mod 29 = 26. These are the public keys.
+Alice and Bob send the keys to each other. Bob receives A = ga mod p = 19, i.e., Alice’s public key. And Alice receives B = gb mod p = 26, i.e., Bob’s public key. This step is called the key exchange.
+Alice and Bob can finally calculate the shared secret using the received public key and their own private key. Alice calculates Ba mod p = 2613 mod 29 = 10 and Bob calculates Ab mod p = 1915 mod 29 = 10. Both calculations yield the same result, gab mod p = 10, the shared secret key.
+
+RSA and Diffie-Helman are often used side by side in real environmens:
+Diffie-Hellman is used for key agreement, and RSA is used for digital signatures, key transport, and authentication, among many others.
+
+SSh keys are RSA keys by default.
+ssh-keygen is the program used to generate key pairs.
+
+DSA- Digital Signature Algorithm - Designed specifically for digital signatures
+ECDSA - Elliptic Curve Digital Signature Algorithm - Variant of DSA using ECC to provide small key sizes for equivalent security
+ECDSA-SK - ECDSA with a Shared Key. Encorporates hardware based security keys
+Ed25519 - public key signature system using Edwards-curve DSA with Curve25519
+Ed25519 - Same as above but uses a hardware based security key
+
+-t is specified with default options:
+ssh-keygen -t ed25519
+
+************************************
+WHEN GENERATING A SSH KEY TO LOG IN TO A REMOTE MACHINE, GENERATE KEYS ON YOUR MACHINE AND THEN COPY THE PUBLIC KEY OVER TO THE REMOTE MACHINE SO THAT THE PRIVATE KEY NEVER EXISTS ON THE REMOTE MACHINE
+************************************
+
+use ssh-copy-id to copy the public key over
+
+Permissions must be set up correctly to use a private SSH key; otherwise, your SSH client will ignore the file with a warning. Keep permissions to 600 or stricter. 
+
+ssh -i <PKfilename> user@host is how to specify a key for the standard linux OpenSSH client
+
+~/.ssh is the directory containing these SSH secrets
+the authorized_keys file holds the public keys that are allowed access to the server if using key-based authentication for SSH
+
+Digital Signatures allow us to verify the authenticity of actions in the digital world
+
+Since only you have access to your private key, you encrypt the document using that. Your public key will decrypt it. Since only you have your private key, if the public key decrypts it, than we have now verified authenticity
+
+********************************************************************************************************************************************************************************************
+SO ALL IN ALL:
+Bob and Alice want to talk
+Bob and Alice perform a diffie-hellman key exchange. They agree on a public variable, use it to calculate their private keys and public keys, exchange those keys, and then find a shared secret. (Note that the private and public keys here will later be used for RSA encryption)
+Now, both Bob and Alice have their own private key, the other's public key, and the shared secret used for symmetric encryption.
+Bob wants to send a document to Alice
+Bob will encrypt the document with the shared secret and send it over the wire.
+Bob will also take a hash of the document for integrity, and he will encrypt that hash with his private key that nobody else has, for verification.
+Alice will decrypt Bob's hash with Bob's public key. If it decrypts, Alice knows that the message is, in fact, from Bob and not a mitm. 
+Alice will then hash the file Bob sent over, and if the Hash's match, then she knows that she has the exact file Bob sent over. Integrity is verified. 
+And, everything sent over the wire was done through a symmetric encryption key unknown to the man in the middle, that is only viable for the duration of their conversation.
+********************************************************************************************************************************************************************************************
+
+Let's Encrypt is a site that can get you a free TLS certificate if you are setting up a website and want to use HTTPS
+
+PGP and GPG
+PGP means Pretty Good Privacy - implements encryption for encrypting files, performing digital signing, and more. 
+GPG is used in email to protect the confidentiality of emails
+
+gpg --full-gen-key is the commands used to generate keys
+
+gpg (or GnuPG) is an opensource implementation of PGP
+
+Once you generate your key pair, you can share the public key with your contacts and decrypt what they send you with your private key. It's worth keeping a secure copy of the private key elsewhere, since if it's lost, all messages are also lost.
+use gpg --import backup.key to import the backup key
+
+To decrypt the messages, use this command:
+gpg --decrypt confidential_message.gpg
