@@ -1,0 +1,83 @@
+used for cracking hashes
+    combines fast speed with large range of type compatibility
+
+P and NP are two classes of problems that help use understand teh efficiency of algorithms:
+P (Polynomial Time) Covers the list of problems who's solutions we can solve in linear time. Sorting a list for example, as the list grows in length, so does the time it takes to sort it.
+NP (Non-Deterministic Polynomial Time) Class of problems fro which a solution can be checked quickly, even if finding the solution itself might be hard, or finding a fast solution might be impossible.
+
+Jumbo John is a popular extended version of John the Ripper
+***
+Basic Syntax:
+    john [options] [file path]
+***
+John has builtin features to identify the hash type. This can be unreliable, but if you can't identify what type of hash it is yourself, use:
+john --wordlist=[path] [file]
+
+If john can't discern what the kind of hash is, you can use hasher.com or hash-identifier. To use hash identifier:
+use wget or curl to download hash-id.py from its Gitlab page, launch it with python3 hash-id.py, and enter the hash
+
+--format=[type] tells john what type of hash you have
+    Note that you'll need to preface it with 'raw-'
+john --format=raw-md5 --wordlist......
+
+This doesn't always apply though, so you can use this to figure out if you need to use raw:
+john --list=formats | grep -iF "<thingtosearchfor>"
+
+To show the cracked passwords:
+john --show --format=<> <filename just cracked>
+
+WINDOWS
+Uses NThash to store user and service passwords. AKA NTLM
+
+Cracking the /etc/shadow file:
+You'll typically need root level access to see this file
+
+John is particular, so you'll need /etc/passwd too
+
+Once you have this, you can use a tool in John's suite of tools called 'unshadow'
+
+Basic unshadow syntax:
+  unshadow [path to passwd] [path to shadow] > unshadowed.txt
+
+Word Mangling
+John provides it
+It's called single crack mode
+
+GECOS is UNIX for something with the OS. 
+John is compatible with UNIX:
+  When looking at the entries for the users in both /etc/shadow and /etc/passwd ->
+  The FIFTH/5TH field in each is the GECOS field
+  It sroes general information about the user-like their full name, office number, and phone number. 
+  John can take that information and add it to its word mangling wordlist
+
+To use Single Crack Mode:
+john --single --format=[...].....
+(add the --single flag)
+Another change:
+You need ot change the format you're feeding john
+It needs to know hwat to create a wordlist from
+change the hash:
+    1ef......
+to:
+    mike:1ef...
+
+john can crack the password on password protected ZIP files
+
+Similar to unshadow, zip2john converts the zip file into a hash format john can understand. Primary Usage:
+zip2john [options] [zip file] > [output file]
+then we can feed it directly into john
+
+rar2john tool works almost exactly like zip2john but it's used to crack RAR archives
+"RAR archives are compressed files created by the WinRAR archive manager
+
+id_rsa are files that contain private keys used as passwords for SSH
+john can crack these as well to enable the use of SSH to connect to remote systems
+
+ssh2jon converts the id_rsa private key into a hask format john can work with. Observe:
+It works a little different though. It's a Python program located at:
+/opt/john/ssh2john.py
+replace teh ssh2john command with python3 and run the file
+
+or you can use ssh2jon syntax command on the CLI:
+ssh2john <id_rsa privkey file> > <output file>
+then feed the file you want to output to john
