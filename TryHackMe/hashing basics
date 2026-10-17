@@ -1,0 +1,93 @@
+Helps verify integrity and ensure password confidentiality
+
+A hash collision is when two inputs create the same output.
+This is attempted to be avoided, but since possible inputs are infinite and possible outputs are limited, this is hard
+Hashes give a fixed length output, which means that their only 2^(numberOfBits) possible outputs. 
+This means collisions are inevitable, but a good algorithm takes steps to ensure the risk of them is negligable
+
+Do not trust either MD5 or SHA1 since they've both fallen susceptible to hash collision attacks
+
+use the following command to produce a hash:
+sha256sum
+sha1sum
+md5digest
+
+Rainbow tables trade time-to-crack a hask for disk space. They're a table of known passwords and their corresponding hashes.
+
+websites CrackStation and Hashes.com employ massive rainbow tables for craching passwords that are not salted
+
+salt is a randomly generated value stores in the database and should be unique to each user.
+
+Salts don't need to be kept private
+
+hash functions like Bcrypt and Scrypt handle this automatically
+
+/etc/shadow is where linux stores its password hashes
+  File contains 9 fields, the first two of which are the login name and the encrypted password
+  more information about the other fields can be found with the command:
+man 5 shadow
+The 'Encrypted Password' field contains the hashed passphrase iwth 4 components:
+    prefix (algorithm ID)
+    options (parameters)
+    salt
+    hash
+it's saved in the format:
+$prefix$options$salt$hash
+
+Prefixes:
+$y$ yescrypt
+$gy$ gost-yescrypt
+$7$ scrypt
+$2b$/$2y$/$2a$/$2x$ bcrypt based on Blowfish
+$6$ sha512crypt
+$md5 sunMD5
+$1$ md5crypt
+
+Windows uses NTLM which is a variant of MD4 and MD5 and stores them in the SAM. It tries to prevent normal users from dumping them.
+  So, use tools like mimikatz to circumvent this
+
+  https://hashcat.net/wiki/doku.php?id=example_hashes
+  A very useful tool for hashing informtion. CTRL-F to find what you're looking for, there's a TON of information on there.
+
+CRACKING HASHES::::
+You crack them by running a tool like Hashcat or John the Ripper against a file of known passwords like rockyou.txt(a rainbow table)
+
+Cracking on a GPU is faster because they have thousands of tiny cores and are highly specialized for specfiic types of mathematics, like the type used to crack hashes
+  From here, note that virtualized software like VMs typically does not have access to the underlying GPU, so it's best to use the GPU on your machine for the best performance
+THIS IS FOR HASHCAT, since John the Ripper runs on the CPU by default
+
+basic hashcat usage:
+Syntax:::
+hashcat -m <hashType> -a <attackMode> hashfile wordlist
+  -m  specifies hash type in numeric format
+        1000 IS FOR ntlm. use Man Hashcat to find the correct code to use
+  -a specifies attack type, 0 is for sequential
+1000 = NTLM
+3200 = Bcrypt
+
+$6$GQXVvW4EuM$ehD6jWiMsfNorxy5SINsgdlxmAEl3.yif0/
+
+****************************************
+In conclusion:
+use:
+hashes.com
+hashcat
+john the ripper
+hashcat.net
+****************************************
+
+HMAC stands for Keyed-Hash Message Authentication Code
+
+Uses a cryptographic hash function and a secret key to verify authenticity and integrity of data
+
+How HMAC works:
+1. Secret key is padded to the block size of the hash function
+2. Padded key is XOR'd with a constant
+3. Message is hashed using hash function with the XOR'd key
+4. Result is hashed again with the same hash function but using the padded key Xor'd with another constant
+
+In short the private key gets XOR'd against two constants, getting hashed after each one.
+Private Key XOR Const1 = result1
+Hash result1 = hash1
+Private Key XOR Const2 Concatenated with hash1
+hash the above = HMAC
