@@ -1,0 +1,24 @@
+The request line (or start line) is the first part of an HTTP request and tells the server what kind of request it’s dealing with. It has three main parts: the HTTP method, the URL path, and the HTTP version.
+
+Example: METHOD /path HTTP/version
+
+100-199= informational responses
+    Server has received part of the request and it waiting for the rest
+200-299= successful responses
+    every worked as expected
+300-399= redirection messages
+    resource moved to a different location, usually provides the new URL
+400-499= Client Error Responses
+    Problem with the request
+500-599= server error responses
+    Sevrer encountered an error, there's server-side issues that are not the client's fault
+
+Content Security Policy:
+    Allows teh admin to set what resources and sources are safe to help prevent XSS attacks
+HSTS (Strict Transport Security):  
+    Helps ensure that web browsers will only connect over HTTPS
+X Content Type Options:
+    Instructs the browser to not guess the MIME type of a resource
+Referrer Policy:
+    This header controls the amount of information sent to the destination web server when a user is redirected from the source web server, such as when they click a hyperlink
+
