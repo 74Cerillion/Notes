@@ -1,0 +1,12 @@
+Javascript is used as a scripting language on the web to improve the functionality of HTML and CSS with more advanced features than those two can natively support
+It's an interpreted, turing complete language
+alert displays an alert to the top of the page
+prompt prompts the user for something
+confirm prompts the user to confirm intent
+all three display the message that you type
+
+Security practices:
+Always minify and obfuscate
+use external js and do not allow files that you have not created yourself to be interpreted and read by the application/browser as part of the application
+Do not blindly include other files
+Set rate limits to alerts
