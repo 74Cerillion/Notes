@@ -1,0 +1,25 @@
+Hydra is a brute forcing tool to speed up password cracking
+
+Supports dozens of protocols
+
+Utilizes 16 cores by default, AKA it tries 16 passwords simultaneously
+
+brute force FTP with username: user and password list: passlist.txt:
+hydra -l user -P passlist.txt ftp://<targetIP>
+
+Use Hydra on a web form:
+hydra -l <username> -P <full path to password list> <target IP> -t 4 ssh
+
+-l specifies UN for SSH login
+-P list of password
+-t specifies the number of threads to use (4 in this case)
+
+Post Web Form:
+* Must know which type of request it's using (use devtools)
+sudo hydra <UN> <wordlist> <Target IP> http-<Type of request>-form "<path>:<login_credentials>:<invalid response>" -V
+
+<login_credentials> is the name of the input field for the username and password, separated by a colon. For example, if the login form has input fields named "username" and "password", you would use "username=^USER^&password=^PASS^".
+
+-V for verbose output of every attempt
+
+-s before the -V specifies the port if it's not the default (e.g., -s 8080 for port 8080)

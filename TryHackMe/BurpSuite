@@ -1,0 +1,19 @@
+For pentesting Web and Mobile applications
+    Works by intercepting HTTP/HTTPS traffic for review and routing
+
+Features in the free community edition:
+    Proxy
+        Interception and modification of requests and responses
+    Repeater
+        Capture, Modify, and Resend the same request multiple times
+    Intruder
+        Spraying endpoints with requests. Good for brute forcing
+    Decoder
+        VData Transformation- Can encode/decode before sending packets to the target
+    Comparer
+        Comparison of two pieces of data at either the word or byte level
+    Sequencer
+        Assesses the true randomness of pieces of data, like cookies
+    BApp Store
+        Store for downloading increased functionality
+

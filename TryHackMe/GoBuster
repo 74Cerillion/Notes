@@ -1,0 +1,30 @@
+Recon tool for offensive enumeration
+
+Enumerates:
+    Web Directories
+    DNS Subdomains
+    vHosts
+    Amazon S3 Buckets
+    Google Cloud Storage
+by using brute force, wordlists, and handling incoming responses
+
+GoBuster exists between the recon and scanning phases
+
+gobuster --help
+    shows a help page for the gobuster tool
+
+Example - enumerate a web directory:
+gobuster dir -u "<websiteURL"> -w <wordlist> -t 64
+
+dir mode:
+    enumerate web directories and their files
+    Will return status codes that will Immediately tell you what's accessible
+Get more help:
+    gobuster dir --help
+Example Above^
+
+You can do the same help command for any other mode:
+    gobuster dns --help
+    etc
+    etc
+    etc
