@@ -1,0 +1,6 @@
+Reverse Shells:
+
+Netcat (nc) listens for an incoming shell connection:
+    nc -lvnp <port>
+This command tells netcat to start listening and waiting to potentially catch a shell
+
