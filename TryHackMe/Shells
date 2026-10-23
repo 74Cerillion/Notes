@@ -4,3 +4,34 @@ Netcat (nc) listens for an incoming shell connection:
     nc -lvnp <port>
 This command tells netcat to start listening and waiting to potentially catch a shell
 
+
+
+Bind Shell:
+
+binds a port on the compromised system and listens for a connection
+Can lead to detection since it needs to remain active and listen for connections
+Useful for when a compromised target doesn't allow outgoing connections
+
+
+
+Shell Listeners:
+
+netcat
+rlwrap: uses GNU readline library to provide editing keyboard and history
+Ncat: an improved netcat providing extra features like encryption (SSL)
+Socat: Create a socket connection between 2 data sources
+
+
+
+Shell Payloads:
+
+CMD or script exposing shell to incoming connection or send connection (bind or reverse dependent)
+There are lots: Python, Bash, Awk, Telnet, PHP. Use the web or meterpreter to find what you need
+
+
+
+Web Shell:
+
+script written in a language supported by web servers.
+Executes commands through web server itself
+can be hidden with a compromised app or service, making it difficult to detect
